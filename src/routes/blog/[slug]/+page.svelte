@@ -33,7 +33,7 @@
 		<div
 			class="prose mt-12 max-w-none prose-invert prose-headings:text-text prose-p:text-text-muted prose-a:text-primary-light prose-strong:text-text prose-code:text-accent"
 		>
-			<svelte:component this={data.content} />
+			<data.content />
 		</div>
 	</div>
 </article>

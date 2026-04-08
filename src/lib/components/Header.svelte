@@ -16,7 +16,7 @@
 		return () => window.removeEventListener('scroll', onScroll);
 	});
 
-	const links = [
+	const links: { route: '/' | '/blog'; hash: string; label: string }[] = [
 		{ route: '/', hash: '', label: 'Home' },
 		{ route: '/', hash: '#about', label: 'About' },
 		{ route: '/', hash: '#projects', label: 'Projects' },

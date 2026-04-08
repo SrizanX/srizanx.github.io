@@ -11,8 +11,8 @@ type Post = {
 export const load: PageLoad = async () => {
 	const modules = import.meta.glob('/src/content/posts/*.md', { eager: true });
 
-	const posts: Post[] = Object.entries(modules)
-		.map(([path, module]: [string, Record<string, unknown>]) => {
+	const posts: Post[] = (Object.entries(modules) as [string, Record<string, unknown>][])
+		.map(([path, module]) => {
 			const slug = path.split('/').pop()?.replace('.md', '') ?? '';
 			const metadata = module.metadata as Record<string, unknown> | undefined;
 			return {
