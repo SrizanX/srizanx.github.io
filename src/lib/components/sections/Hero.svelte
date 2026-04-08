@@ -1,0 +1,67 @@
+<script lang="ts">
+	import { resolve } from '$app/paths';
+	import { onMount } from 'svelte';
+	import { fly, scale } from 'svelte/transition';
+
+	let visible = $state(false);
+	onMount(() => {
+		visible = true;
+	});
+</script>
+
+<section class="relative flex min-h-screen items-center overflow-hidden pt-20">
+	<!-- Animated background gradient blobs -->
+	{#if visible}
+		<div
+			in:scale={{ duration: 2000, start: 0.5 }}
+			class="pointer-events-none absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-primary-light/5 blur-3xl"
+		></div>
+		<div
+			in:scale={{ duration: 2500, delay: 300, start: 0.5 }}
+			class="pointer-events-none absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-accent/5 blur-3xl"
+		></div>
+	{/if}
+
+	<div class="mx-auto max-w-6xl px-6">
+		<div class="max-w-3xl">
+			{#if visible}
+				<p
+					in:fly={{ y: 24, duration: 700 }}
+					class="mb-4 text-sm font-medium tracking-wider text-accent uppercase"
+				>
+					Android Developer
+				</p>
+				<h1
+					in:fly={{ y: 24, duration: 700, delay: 150 }}
+					class="text-5xl leading-tight font-bold md:text-7xl"
+				>
+					Hi, I'm
+					<span class="bg-gradient-to-r from-primary-light to-accent bg-clip-text text-transparent">
+						Srizan
+					</span>
+				</h1>
+				<p
+					in:fly={{ y: 24, duration: 700, delay: 300 }}
+					class="mt-6 max-w-xl text-lg leading-relaxed text-text-muted"
+				>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
+					ut labore et dolore magna aliqua. Building Android apps for 4+ years.
+				</p>
+				<div in:fly={{ y: 24, duration: 700, delay: 500 }} class="mt-8 flex gap-4">
+					<a
+						href="{resolve('/')}#projects"
+						class="rounded-lg bg-primary-light px-6 py-3 text-sm font-medium text-white shadow-lg shadow-primary-light/25 transition-all hover:-translate-y-0.5 hover:bg-primary hover:shadow-xl hover:shadow-primary-light/30"
+					>
+						View Projects
+					</a>
+					<a
+						href="{resolve('/')}#contact"
+						class="rounded-lg border border-white/20 px-6 py-3 text-sm font-medium text-text-muted transition-all hover:-translate-y-0.5 hover:border-white/40 hover:text-white"
+					>
+						Contact Me
+					</a>
+				</div>
+			{/if}
+		</div>
+	</div>
+</section>
