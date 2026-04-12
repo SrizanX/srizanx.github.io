@@ -14,11 +14,11 @@
 	{#if visible}
 		<div
 			in:scale={{ duration: 2000, start: 0.5 }}
-			class="pointer-events-none absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-primary-light/5 blur-3xl"
+			class="pointer-events-none absolute -top-40 -right-40 h-125 w-125 rounded-full bg-primary-light/5 blur-3xl"
 		></div>
 		<div
 			in:scale={{ duration: 2500, delay: 300, start: 0.5 }}
-			class="pointer-events-none absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-accent/5 blur-3xl"
+			class="pointer-events-none absolute -bottom-40 -left-40 h-100 w-100 rounded-full bg-accent/5 blur-3xl"
 		></div>
 	{/if}
 
@@ -36,7 +36,7 @@
 					class="text-5xl leading-tight font-bold md:text-7xl"
 				>
 					Hi, I'm
-					<span class="bg-gradient-to-r from-primary-light to-accent bg-clip-text text-transparent">
+					<span class="bg-linear-to-r from-primary-light to-accent bg-clip-text text-transparent">
 						Srizan
 					</span>
 				</h1>
@@ -47,7 +47,7 @@
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
 					ut labore et dolore magna aliqua. Building Android apps for 4+ years.
 				</p>
-				<div in:fly={{ y: 24, duration: 700, delay: 500 }} class="mt-8 flex gap-4">
+				<div in:fly={{ y: 24, duration: 700, delay: 500 }} class="mt-8 flex flex-wrap gap-4">
 					<a
 						href="{resolve('/')}#projects"
 						class="rounded-lg bg-primary-light px-6 py-3 text-sm font-medium text-white shadow-lg shadow-primary-light/25 transition-all hover:-translate-y-0.5 hover:bg-primary hover:shadow-xl hover:shadow-primary-light/30"
@@ -59,6 +59,13 @@
 						class="rounded-lg border border-white/20 px-6 py-3 text-sm font-medium text-text-muted transition-all hover:-translate-y-0.5 hover:border-white/40 hover:text-white"
 					>
 						Contact Me
+					</a>
+					<a
+						href="{resolve('/')}resume.pdf"
+						download="Resume-Mahdi_Saifullah_Srizan-Android_Developer_at_Jatri_Services_Ltd.pdf"
+						class="rounded-lg border border-white/20 px-6 py-3 text-sm font-medium text-text-muted transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+					>
+						Download CV
 					</a>
 				</div>
 			{/if}

@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<title>Srizan — Android Developer</title>
+	<title>Mahdi Saifullah Srizan — Mobile App Developer</title>
 	<meta
 		name="description"
 		content="Android developer with 4 years of experience building modern mobile applications."

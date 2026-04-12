@@ -21,8 +21,8 @@
 		{ route: '/', hash: '#about', label: 'About' },
 		{ route: '/', hash: '#projects', label: 'Projects' },
 		{ route: '/', hash: '#experience', label: 'Experience' },
-		{ route: '/blog', hash: '', label: 'Blog' },
-		{ route: '/', hash: '#contact', label: 'Contact' }
+		{ route: '/', hash: '#contact', label: 'Contact' },
+		{ route: '/blog', hash: '', label: 'Blog' }
 	];
 </script>
 
@@ -32,7 +32,7 @@
 		: 'bg-transparent'}"
 >
 	<nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-		<a href={resolve('/')} class="text-xl font-bold text-primary-light">Srizan</a>
+		<a href={resolve('/')} class="text-xl font-bold text-primary-light">Mahdi Saifullah Srizan</a>
 
 		<!-- Desktop Nav -->
 		<ul class="hidden gap-8 md:flex">
