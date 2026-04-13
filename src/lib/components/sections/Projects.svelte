@@ -25,30 +25,6 @@
 			screenshots: [] as string[],
 			github: '',
 			live: ''
-		},
-		{
-			title: 'Project Delta',
-			desc: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.',
-			tags: ['Flutter', 'Dart', 'Firebase'],
-			screenshots: [] as string[],
-			github: '',
-			live: ''
-		},
-		{
-			title: 'Project Epsilon',
-			desc: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.',
-			tags: ['Kotlin', 'Compose', 'GraphQL'],
-			screenshots: [] as string[],
-			github: '',
-			live: ''
-		},
-		{
-			title: 'Project Zeta',
-			desc: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur.',
-			tags: ['Java', 'XML Views', 'WebSockets'],
-			screenshots: [] as string[],
-			github: '',
-			live: ''
 		}
 	];
 </script>

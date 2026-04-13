@@ -7,8 +7,8 @@
 			url: 'https://jatri.co/',
 			roles: [
 				{
-					title: 'Software Engineer - III',
-					period: '2023 — Present',
+					title: 'Software Engineer III - Mobile',
+					period: '2025 — Present',
 					points: [
 						'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
 						'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -16,7 +16,25 @@
 					]
 				},
 				{
-					title: 'Junior Android Developer',
+					title: 'Software Engineer I - Android',
+					period: '2024 — 2025',
+					points: [
+						'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+						'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+						'Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
+					]
+				},
+				{
+					title: 'Software Engineer',
+					period: '2023 — 2024',
+					points: [
+						'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+						'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+						'Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
+					]
+				},
+				{
+					title: 'Jr. Software Engineer',
 					period: '2022 — 2023',
 					points: [
 						'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.',

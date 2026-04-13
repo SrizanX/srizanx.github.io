@@ -5,9 +5,8 @@
 
 	const stats = [
 		{ value: 4, suffix: '+', label: 'Years Experience' },
-		{ value: 10, suffix: '+', label: 'Apps Published' },
-		{ value: 50, suffix: 'K+', label: 'Downloads' },
-		{ value: 15, suffix: '+', label: 'B2B Apps Built' }
+		{ value: 15, suffix: '+', label: 'B2B Apps Built' },
+		{ value: 1, suffix: '', label: 'Flutter Project In Play Store' }
 	];
 
 	const progress = new Tween(0, { duration: 1500, easing: cubicOut });
