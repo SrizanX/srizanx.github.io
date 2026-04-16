@@ -3,6 +3,12 @@
 	import { onMount } from 'svelte';
 	import { fly, scale } from 'svelte/transition';
 
+	// Extracted variables
+	const designation = 'Android Developer';
+	const name = 'Srizan';
+	const description = `
+Android native app developer with 4+ years of experience. Passionate about building robust, high-quality mobile applications. Skilled in Kotlin and Java for Android, and also experienced with Flutter for cross-platform development and explore Kotlin Multiplatform (KMP) for sharing code across Android and iOS.`;
+
 	let visible = $state(false);
 	onMount(() => {
 		visible = true;
@@ -29,7 +35,7 @@
 					in:fly={{ y: 24, duration: 700 }}
 					class="mb-4 text-sm font-medium tracking-wider text-accent uppercase"
 				>
-					Android Developer
+					{designation}
 				</p>
 				<h1
 					in:fly={{ y: 24, duration: 700, delay: 150 }}
@@ -37,15 +43,14 @@
 				>
 					Hi, I'm
 					<span class="bg-linear-to-r from-primary-light to-accent bg-clip-text text-transparent">
-						Srizan
+						{name}
 					</span>
 				</h1>
 				<p
 					in:fly={{ y: 24, duration: 700, delay: 300 }}
 					class="mt-6 max-w-xl text-lg leading-relaxed text-text-muted"
 				>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
-					ut labore et dolore magna aliqua. Building Android apps for 4+ years.
+					{description}
 				</p>
 				<div in:fly={{ y: 24, duration: 700, delay: 500 }} class="mt-8 flex flex-wrap gap-4">
 					<a

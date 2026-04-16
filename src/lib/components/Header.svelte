@@ -19,6 +19,7 @@
 	const links: { route: '/' | '/blog'; hash: string; label: string }[] = [
 		{ route: '/', hash: '', label: 'Home' },
 		{ route: '/', hash: '#about', label: 'About' },
+		{ route: '/', hash: '#skills', label: 'Skills' },
 		{ route: '/', hash: '#projects', label: 'Projects' },
 		{ route: '/', hash: '#experience', label: 'Experience' },
 		{ route: '/', hash: '#contact', label: 'Contact' },

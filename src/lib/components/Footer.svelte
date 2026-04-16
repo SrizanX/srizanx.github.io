@@ -6,7 +6,9 @@
 	<div class="mx-auto max-w-6xl px-6 py-12">
 		<div class="flex flex-col items-center justify-between gap-6 md:flex-row">
 			<div>
-				<a href={resolve('/')} class="text-xl font-bold text-primary-light">Srizan</a>
+				<a href={resolve('/')} class="text-xl font-bold text-primary-light"
+					>Mahdi Saifullah Srizan</a
+				>
 				<p class="mt-1 text-sm text-text-muted">Android Developer</p>
 			</div>
 		</div>

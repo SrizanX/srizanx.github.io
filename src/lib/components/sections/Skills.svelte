@@ -13,11 +13,11 @@
 		},
 		{
 			category: 'Architecture',
-			skills: ['MVVM', 'Clean Architecture', 'MVI', 'Multi-Module']
+			skills: ['MVVM', 'MVI', 'Clean Architecture', 'Multi-Module']
 		},
 		{
 			category: 'Networking',
-			skills: ['Retrofit', 'OkHttp', 'GraphQL', 'WebSockets', 'REST APIs']
+			skills: ['Retrofit', 'OkHttp', 'Ktor', 'WebSockets', 'REST APIs']
 		},
 		{
 			category: 'Tools & Workflow',
@@ -25,12 +25,16 @@
 		},
 		{
 			category: 'Cross-Platform',
-			skills: ['Flutter', 'Unit Testing']
+			skills: ['Flutter', 'Kotlin Multiplatform (KMP)']
+		},
+		{
+			category: 'Hobby / Exploring',
+			skills: ['Spring', 'Svelte', 'NestJS']
 		}
 	];
 </script>
 
-<section class="bg-surface-light py-24">
+<section id="skills" class="bg-surface-light py-24">
 	<div class="mx-auto max-w-6xl px-6">
 		<h2 use:reveal class="text-3xl font-bold">Skills & Tech Stack</h2>
 		<div use:reveal={{ delay: 100 }} class="mt-2 h-1 w-16 rounded bg-primary-light"></div>
