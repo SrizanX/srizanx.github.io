@@ -54,8 +54,16 @@ Android native app developer with 4+ years of experience. Passionate about build
 				</p>
 				<div in:fly={{ y: 24, duration: 700, delay: 500 }} class="mt-8 flex flex-wrap gap-4">
 					<a
-						href="{resolve('/')}#projects"
+						href="{resolve('/')}resume.pdf"
+						download="Resume-Mahdi_Saifullah_Srizan-Android_Developer_at_Jatri_Services_Ltd.pdf"
 						class="rounded-lg bg-primary-light px-6 py-3 text-sm font-medium text-white shadow-lg shadow-primary-light/25 transition-all hover:-translate-y-0.5 hover:bg-primary hover:shadow-xl hover:shadow-primary-light/30"
+					>
+						Download Resume
+					</a>
+
+					<a
+						href="{resolve('/')}#projects"
+						class="rounded-lg border border-white/20 px-6 py-3 text-sm font-medium text-text-muted transition-all hover:-translate-y-0.5 hover:border-white/40 hover:text-white"
 					>
 						View Projects
 					</a>
@@ -64,13 +72,6 @@ Android native app developer with 4+ years of experience. Passionate about build
 						class="rounded-lg border border-white/20 px-6 py-3 text-sm font-medium text-text-muted transition-all hover:-translate-y-0.5 hover:border-white/40 hover:text-white"
 					>
 						Contact Me
-					</a>
-					<a
-						href="{resolve('/')}resume.pdf"
-						download="Resume-Mahdi_Saifullah_Srizan-Android_Developer_at_Jatri_Services_Ltd.pdf"
-						class="rounded-lg border border-white/20 px-6 py-3 text-sm font-medium text-text-muted transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
-					>
-						Download CV
 					</a>
 				</div>
 			{/if}
