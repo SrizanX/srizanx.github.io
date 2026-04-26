@@ -1,3 +1,10 @@
 # allow crawling everything by default
 User-agent: *
-Disallow:
+Disallow:           # Allow everything
+
+# Block a folder
+User-agent: *
+Disallow: /private/
+
+# Link to sitemap
+Sitemap: https://srizanx.github.io/sitemap.xml
