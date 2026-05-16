@@ -31,7 +31,7 @@
 </script>
 
 <svelte:head>
-	<title>Blog — Srizan</title>
+	<title>Blog — Mahdi Saifullah Srizan</title>
 	<meta name="description" content="Articles and thoughts on Android development." />
 </svelte:head>
 
