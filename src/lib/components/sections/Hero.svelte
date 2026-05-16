@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
-	import { fly, scale } from 'svelte/transition';
+	import { scale } from 'svelte/transition';
 	import socialPhoto from '$lib/assets/social_photo.png';
 
 	// Extracted variables
@@ -32,51 +32,49 @@ Android native app developer with 4+ years of experience. Passionate about build
 	<div class="mx-auto w-full max-w-6xl px-6">
 		<div class="flex flex-col-reverse items-center gap-12 md:flex-row md:gap-20">
 			<div class="max-w-3xl flex-1">
-				{#if visible}
-					<p
-						in:fly={{ y: 24, duration: 700 }}
-						class="mb-4 text-sm font-medium tracking-wider text-accent uppercase"
+				<p
+					class="hero-item mb-4 text-sm font-medium tracking-wider text-accent uppercase"
+					style="animation-delay: 0ms"
+				>
+					{designation}
+				</p>
+				<h1
+					class="hero-item text-5xl leading-tight font-bold md:text-7xl"
+					style="animation-delay: 150ms"
+				>
+					Hi, I'm
+					<span class="bg-linear-to-r from-primary-light to-accent bg-clip-text text-transparent">
+						{name}
+					</span>
+				</h1>
+				<p
+					class="hero-item mt-6 max-w-xl text-lg leading-relaxed text-text-muted"
+					style="animation-delay: 300ms"
+				>
+					{description}
+				</p>
+				<div class="hero-item mt-8 flex flex-wrap gap-4" style="animation-delay: 500ms">
+					<a
+						href="{resolve('/')}resume.pdf"
+						download="Resume-Mahdi_Saifullah_Srizan-Android_Developer_at_Jatri_Services_Ltd.pdf"
+						class="rounded-lg bg-primary-light px-6 py-3 text-sm font-medium text-white shadow-lg shadow-primary-light/25 transition-all hover:-translate-y-0.5 hover:bg-primary hover:shadow-xl hover:shadow-primary-light/30"
 					>
-						{designation}
-					</p>
-					<h1
-						in:fly={{ y: 24, duration: 700, delay: 150 }}
-						class="text-5xl leading-tight font-bold md:text-7xl"
-					>
-						Hi, I'm
-						<span class="bg-linear-to-r from-primary-light to-accent bg-clip-text text-transparent">
-							{name}
-						</span>
-					</h1>
-					<p
-						in:fly={{ y: 24, duration: 700, delay: 300 }}
-						class="mt-6 max-w-xl text-lg leading-relaxed text-text-muted"
-					>
-						{description}
-					</p>
-					<div in:fly={{ y: 24, duration: 700, delay: 500 }} class="mt-8 flex flex-wrap gap-4">
-						<a
-							href="{resolve('/')}resume.pdf"
-							download="Resume-Mahdi_Saifullah_Srizan-Android_Developer_at_Jatri_Services_Ltd.pdf"
-							class="rounded-lg bg-primary-light px-6 py-3 text-sm font-medium text-white shadow-lg shadow-primary-light/25 transition-all hover:-translate-y-0.5 hover:bg-primary hover:shadow-xl hover:shadow-primary-light/30"
-						>
-							Download Resume
-						</a>
+						Download Resume
+					</a>
 
-						<a
-							href="{resolve('/')}#projects"
-							class="rounded-lg border border-white/20 px-6 py-3 text-sm font-medium text-text-muted transition-all hover:-translate-y-0.5 hover:border-white/40 hover:text-white"
-						>
-							View Projects
-						</a>
-						<a
-							href="{resolve('/')}#contact"
-							class="rounded-lg border border-white/20 px-6 py-3 text-sm font-medium text-text-muted transition-all hover:-translate-y-0.5 hover:border-white/40 hover:text-white"
-						>
-							Contact Me
-						</a>
-					</div>
-				{/if}
+					<a
+						href="{resolve('/')}#projects"
+						class="rounded-lg border border-white/20 px-6 py-3 text-sm font-medium text-text-muted transition-all hover:-translate-y-0.5 hover:border-white/40 hover:text-white"
+					>
+						View Projects
+					</a>
+					<a
+						href="{resolve('/')}#contact"
+						class="rounded-lg border border-white/20 px-6 py-3 text-sm font-medium text-text-muted transition-all hover:-translate-y-0.5 hover:border-white/40 hover:text-white"
+					>
+						Contact Me
+					</a>
+				</div>
 			</div>
 			<!-- Photo -->
 			<div class="flex flex-1 items-center justify-center">
@@ -94,3 +92,20 @@ Android native app developer with 4+ years of experience. Passionate about build
 		</div>
 	</div>
 </section>
+
+<style>
+	.hero-item {
+		animation: hero-fly-in 0.7s ease both;
+	}
+
+	@keyframes hero-fly-in {
+		from {
+			opacity: 0;
+			transform: translateY(24px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>
