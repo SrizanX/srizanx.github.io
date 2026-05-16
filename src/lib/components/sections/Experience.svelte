@@ -43,7 +43,6 @@
 		}
 	];
 
-	// Track expanded state for each company using state for reactivity
 	let expandedCompanies = $state<Record<string, boolean>>({});
 
 	function toggleCompany(company: string) {
@@ -51,63 +50,59 @@
 	}
 </script>
 
-<section id="experience" class="bg-surface-light py-24">
-	<div class="mx-auto max-w-6xl px-6">
-		<h2 use:reveal class="text-3xl font-bold">Experience</h2>
-		<div use:reveal={{ delay: 100 }} class="mt-2 h-1 w-16 rounded bg-primary-light"></div>
+<section id="experience" class="experience-section">
+	<div class="grid-bg" aria-hidden="true"></div>
+	<div class="glow-orb orb1" aria-hidden="true"></div>
 
-		<div use:staggerReveal={{ stagger: 200, y: 40 }} class="mt-12 space-y-12">
+	<div class="inner">
+		<div use:reveal class="section-header">
+			<p class="eyebrow">// career.path</p>
+			<h2 class="section-title">Work <span>Experience</span></h2>
+		</div>
+
+		<div use:staggerReveal={{ stagger: 200, y: 40 }} class="timeline">
 			{#each experience as { company, url, roles } (company)}
-				<div class="relative border-l-2 border-primary-light/30 pl-8">
-					<div
-						class="absolute top-0 -left-2.25 h-4 w-4 rounded-full border-2 border-primary-light bg-surface-light shadow-[0_0_8px_rgba(59,130,246,0.4)]"
-					></div>
+				<div class="company-block">
+					<div class="timeline-node" aria-hidden="true"></div>
+
 					<!-- eslint-disable svelte/no-navigation-without-resolve -->
-					<h3 class="text-xl font-semibold">
-						<a
-							href={url}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="transition-colors hover:text-primary-light"
-						>
-							{company}
-						</a>
+					<h3 class="company-name">
+						<a href={url} target="_blank" rel="noopener noreferrer">{company}</a>
 					</h3>
 					<!-- eslint-enable svelte/no-navigation-without-resolve -->
 
-					<div class="mt-4 space-y-8">
-						<!-- Show only the latest role by default -->
+					<div class="roles">
 						{#if roles.length > 0}
-							<div>
-								<p class="text-sm text-accent">{roles[0].period}</p>
-								<h4 class="mt-1 text-lg font-medium">{roles[0].title}</h4>
-								<ul class="mt-3 space-y-2">
+							<div class="role-entry">
+								<p class="role-period">{roles[0].period}</p>
+								<h4 class="role-title">{roles[0].title}</h4>
+								<ul class="role-points">
 									{#each roles[0].points as point (point)}
-										<li class="text-sm leading-relaxed text-text-muted">• {point}</li>
+										<li>{point}</li>
 									{/each}
 								</ul>
 							</div>
 						{/if}
 
-						<!-- Expandable previous roles -->
 						{#if roles.length > 1}
 							<button
-								class="mt-4 text-sm text-primary-light underline hover:text-accent focus:outline-none"
+								class="expand-btn"
 								onclick={() => toggleCompany(company)}
 								aria-expanded={!!expandedCompanies[company]}
 								aria-controls="previous-roles-{company}"
 							>
-								{expandedCompanies[company] ? 'Hide previous roles' : 'Show previous roles'}
+								{expandedCompanies[company] ? '− hide previous roles' : '+ show previous roles'}
 							</button>
+
 							{#if expandedCompanies[company]}
-								<div id="previous-roles-{company}" class="mt-4 space-y-8">
+								<div id="previous-roles-{company}" class="previous-roles">
 									{#each roles.slice(1) as role (role.title)}
-										<div>
-											<p class="text-sm text-accent">{role.period}</p>
-											<h4 class="mt-1 text-lg font-medium">{role.title}</h4>
-											<ul class="mt-3 space-y-2">
+										<div class="role-entry">
+											<p class="role-period">{role.period}</p>
+											<h4 class="role-title">{role.title}</h4>
+											<ul class="role-points">
 												{#each role.points as point (point)}
-													<li class="text-sm leading-relaxed text-text-muted">• {point}</li>
+													<li>{point}</li>
 												{/each}
 											</ul>
 										</div>
@@ -121,3 +116,191 @@
 		</div>
 	</div>
 </section>
+
+<style>
+	.experience-section {
+		background: #0d0f14;
+		padding: 6rem 2rem;
+		position: relative;
+		overflow: hidden;
+		font-family: 'Syne', sans-serif;
+	}
+
+	.grid-bg {
+		position: absolute;
+		inset: 0;
+		background-image:
+			linear-gradient(rgba(99, 210, 219, 0.04) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(99, 210, 219, 0.04) 1px, transparent 1px);
+		background-size: 40px 40px;
+	}
+
+	.glow-orb {
+		position: absolute;
+		border-radius: 50%;
+		filter: blur(80px);
+		pointer-events: none;
+	}
+	.orb1 {
+		width: 400px;
+		height: 400px;
+		background: rgba(99, 210, 219, 0.05);
+		bottom: -100px;
+		right: -80px;
+	}
+
+	.inner {
+		max-width: 900px;
+		margin: 0 auto;
+		position: relative;
+		z-index: 1;
+	}
+
+	.section-header {
+		margin-bottom: 3rem;
+	}
+
+	.eyebrow {
+		font-family: 'JetBrains Mono', monospace;
+		font-size: 11px;
+		color: #63d2db;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		margin-bottom: 0.75rem;
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+	.eyebrow::before {
+		content: '';
+		display: inline-block;
+		width: 20px;
+		height: 1px;
+		background: #63d2db;
+	}
+
+	.section-title {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 800;
+		color: #f0f2f7;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+	}
+	.section-title span {
+		color: #63d2db;
+	}
+
+	.timeline {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
+
+	.company-block {
+		position: relative;
+		padding-left: 2rem;
+		border-left: 2px solid rgba(99, 210, 219, 0.2);
+	}
+
+	.timeline-node {
+		position: absolute;
+		top: 4px;
+		left: -6px;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background: #63d2db;
+		box-shadow: 0 0 10px rgba(99, 210, 219, 0.5);
+	}
+
+	.company-name {
+		font-size: 1.25rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+	}
+	.company-name a {
+		color: #f0f2f7;
+		text-decoration: none;
+		transition: color 0.2s;
+	}
+	.company-name a:hover {
+		color: #63d2db;
+	}
+
+	.roles {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.role-entry {
+		padding: 1.25rem 1.5rem;
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(255, 255, 255, 0.06);
+		border-radius: 10px;
+		transition: border-color 0.3s;
+	}
+	.role-entry:hover {
+		border-color: rgba(99, 210, 219, 0.15);
+	}
+
+	.role-period {
+		font-family: 'JetBrains Mono', monospace;
+		font-size: 10px;
+		color: #63d2db;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		margin-bottom: 0.4rem;
+	}
+
+	.role-title {
+		font-size: 1rem;
+		font-weight: 600;
+		color: #c8d0e0;
+		margin-bottom: 0.75rem;
+	}
+
+	.role-points {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.role-points li {
+		font-size: 13px;
+		line-height: 1.7;
+		color: #6b7589;
+		padding-left: 1rem;
+		position: relative;
+	}
+	.role-points li::before {
+		content: '›';
+		position: absolute;
+		left: 0;
+		color: #63d2db;
+	}
+
+	.expand-btn {
+		font-family: 'JetBrains Mono', monospace;
+		font-size: 11px;
+		color: #63d2db;
+		letter-spacing: 0.1em;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		transition: color 0.2s;
+		align-self: flex-start;
+	}
+	.expand-btn:hover {
+		color: #9ba3b8;
+	}
+
+	.previous-roles {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+</style>
