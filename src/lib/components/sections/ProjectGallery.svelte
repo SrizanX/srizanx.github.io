@@ -26,6 +26,7 @@
 	// Gating on `visible` means a 30-card page runs ~one timer per visible card, not all of them.
 	$effect(() => {
 		if (screenshots.length <= 1 || paused || open || !visible) return;
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 		const id = setInterval(next, 3500);
 		return () => clearInterval(id);
 	});

@@ -1,13 +1,15 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import Seo from '$lib/components/Seo.svelte';
 
 	let { data } = $props();
 </script>
 
-<svelte:head>
-	<title>{data.meta.title} — Srizan</title>
-	<meta name="description" content={data.meta.description} />
-</svelte:head>
+<Seo
+	title="{data.meta.title} — Mahdi Saifullah Srizan"
+	description={data.meta.description}
+	type="article"
+/>
 
 <article class="min-h-screen pt-28 pb-24">
 	<div class="mx-auto max-w-3xl px-6">

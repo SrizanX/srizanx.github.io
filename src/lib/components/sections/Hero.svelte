@@ -8,7 +8,7 @@
 	const designation = 'Android Developer';
 	const name = 'Srizan';
 	const description = `
-Android native app developer with 4+ years of experience. Passionate about building robust, high-quality mobile applications. Skilled in Kotlin and Java for Android, and also experienced with Flutter for cross-platform development and explore Kotlin Multiplatform (KMP) for sharing code across Android and iOS.`;
+Android native app developer with 4+ years of experience. Passionate about building robust, high-quality mobile applications. Skilled in Kotlin and Java for Android, and also experienced with Flutter for cross-platform development and exploring Kotlin Multiplatform (KMP) for sharing code across Android and iOS.`;
 
 	let visible = $state(false);
 	onMount(() => {
@@ -85,7 +85,7 @@ Android native app developer with 4+ years of experience. Passionate about build
 						src={socialPhoto}
 						alt="Mahdi Saifullah Srizan"
 						class="h-full w-full rounded-full object-cover"
-						loading="lazy"
+						fetchpriority="high"
 					/>
 				</div>
 			</div>

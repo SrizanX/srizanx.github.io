@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { reveal, staggerReveal } from '$lib/actions/reveal';
+	import ExternalLink from '$lib/components/ExternalLink.svelte';
 
 	const experience = [
 		{
@@ -62,18 +63,11 @@
 					<div
 						class="absolute top-0 -left-2.25 h-4 w-4 rounded-full border-2 border-primary-light bg-surface-light shadow-[0_0_8px_rgba(59,130,246,0.4)]"
 					></div>
-					<!-- eslint-disable svelte/no-navigation-without-resolve -->
 					<h3 class="text-xl font-semibold">
-						<a
-							href={url}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="transition-colors hover:text-primary-light"
+						<ExternalLink href={url} class="transition-colors hover:text-primary-light"
+							>{company}</ExternalLink
 						>
-							{company}
-						</a>
 					</h3>
-					<!-- eslint-enable svelte/no-navigation-without-resolve -->
 
 					<div class="mt-4 space-y-8">
 						<!-- Show only the latest role by default -->

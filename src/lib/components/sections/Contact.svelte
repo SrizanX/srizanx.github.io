@@ -2,7 +2,11 @@
 	import GithubIcon from '$lib/components/icons/GithubIcon.svelte';
 	import LinkedinIcon from '$lib/components/icons/LinkedinIcon.svelte';
 	import MailIcon from '$lib/components/icons/MailIcon.svelte';
+	import ExternalLink from '$lib/components/ExternalLink.svelte';
 	import { reveal, staggerReveal } from '$lib/actions/reveal';
+
+	const linkClass =
+		'flex items-center gap-3 text-text-muted transition-all duration-300 hover:translate-x-2 hover:text-white';
 </script>
 
 <section id="contact" class="py-24">
@@ -17,31 +21,18 @@
 			</p>
 
 			<div use:staggerReveal={{ stagger: 100, delay: 300 }} class="mt-8 space-y-4">
-				<a
-					href="mailto:mahdi.saifullah@gmail.com"
-					class="flex items-center gap-3 text-text-muted transition-all duration-300 hover:translate-x-2 hover:text-white"
-				>
+				<a href="mailto:mahdi.saifullah@gmail.com" class={linkClass}>
 					<MailIcon />
 					Mail
 				</a>
-				<a
-					href="https://github.com/srizanx"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="flex items-center gap-3 text-text-muted transition-all duration-300 hover:translate-x-2 hover:text-white"
-				>
+				<ExternalLink href="https://github.com/srizanx" class={linkClass}>
 					<GithubIcon />
 					Github
-				</a>
-				<a
-					href="https://linkedin.com/in/srizan"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="flex items-center gap-3 text-text-muted transition-all duration-300 hover:translate-x-2 hover:text-white"
-				>
+				</ExternalLink>
+				<ExternalLink href="https://linkedin.com/in/srizan" class={linkClass}>
 					<LinkedinIcon />
 					Linkedin
-				</a>
+				</ExternalLink>
 			</div>
 		</div>
 	</div>

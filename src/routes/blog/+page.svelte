@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import Seo from '$lib/components/Seo.svelte';
 
 	let { data } = $props();
 
@@ -30,10 +31,10 @@
 	});
 </script>
 
-<svelte:head>
-	<title>Blog — Mahdi Saifullah Srizan</title>
-	<meta name="description" content="Articles and thoughts on Android development." />
-</svelte:head>
+<Seo
+	title="Blog — Mahdi Saifullah Srizan"
+	description="Articles and thoughts on Android development, Kotlin, and mobile engineering."
+/>
 
 <section class="min-h-screen pt-28 pb-24">
 	<div class="mx-auto max-w-4xl px-6">

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import Hero from '$lib/components/sections/Hero.svelte';
 	import About from '$lib/components/sections/About.svelte';
 	import Skills from '$lib/components/sections/Skills.svelte';
@@ -7,13 +8,10 @@
 	import Contact from '$lib/components/sections/Contact.svelte';
 </script>
 
-<svelte:head>
-	<title>Mahdi Saifullah Srizan — Mobile App Developer</title>
-	<meta
-		name="description"
-		content="Android developer with 4 years of experience building modern mobile applications."
-	/>
-</svelte:head>
+<Seo
+	title="Mahdi Saifullah Srizan — Mobile App Developer"
+	description="Android developer with 4+ years of experience building modern mobile applications with Kotlin, Java, and Flutter."
+/>
 
 <Hero />
 <About />

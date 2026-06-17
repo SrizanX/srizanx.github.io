@@ -17,7 +17,13 @@ export interface RevealOptions {
 	once?: boolean;
 }
 
+const prefersReducedMotion = () =>
+	typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 export function reveal(node: HTMLElement, options: RevealOptions = {}) {
+	// Respect the OS "reduce motion" setting: leave content visible, skip the animation.
+	if (prefersReducedMotion()) return;
+
 	const { delay = 0, duration = 600, y = 30, threshold = 0.15, once = true } = options;
 
 	node.style.opacity = '0';
@@ -61,6 +67,9 @@ export interface StaggerOptions extends RevealOptions {
 }
 
 export function staggerReveal(node: HTMLElement, options: StaggerOptions = {}) {
+	// Respect the OS "reduce motion" setting: leave content visible, skip the animation.
+	if (prefersReducedMotion()) return;
+
 	const {
 		stagger = 100,
 		duration = 600,

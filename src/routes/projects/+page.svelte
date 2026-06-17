@@ -3,15 +3,13 @@
 	import { reveal, staggerReveal } from '$lib/actions/reveal';
 	import { projects } from '$lib/data/projects';
 	import ProjectCard from '$lib/components/sections/ProjectCard.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 </script>
 
-<svelte:head>
-	<title>Projects — Mahdi Saifullah Srizan</title>
-	<meta
-		name="description"
-		content="A complete list of mobile apps and projects built by Mahdi Saifullah Srizan."
-	/>
-</svelte:head>
+<Seo
+	title="Projects — Mahdi Saifullah Srizan"
+	description="A complete list of mobile apps and projects built by Mahdi Saifullah Srizan."
+/>
 
 <section class="py-24">
 	<div class="mx-auto max-w-6xl px-6">
