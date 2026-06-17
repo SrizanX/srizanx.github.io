@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { reveal, staggerReveal } from '$lib/actions/reveal';
 	import { featuredProjects, projects } from '$lib/data/projects';
 	import ProjectCard from './ProjectCard.svelte';
@@ -21,7 +22,7 @@
 		{#if projects.length > featuredProjects.length}
 			<div use:reveal class="mt-12 text-center">
 				<a
-					href="/projects"
+					href={resolve('/projects')}
 					class="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-text transition-colors hover:border-primary-light/50 hover:text-primary-light"
 				>
 					View all projects →

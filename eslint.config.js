@@ -42,7 +42,8 @@ export default defineConfig(
 		rules: {}
 	},
 	{
-		files: ['**/sections/Projects.svelte'],
+		// This component renders only outbound (external) links, which must not go through resolve().
+		files: ['**/components/ExternalLink.svelte'],
 		rules: {
 			'svelte/no-navigation-without-resolve': 'off'
 		}

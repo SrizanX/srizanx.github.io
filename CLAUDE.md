@@ -28,10 +28,12 @@ Bio, experience, skills, and contact details for the site owner live in `DATA.md
 **Svelte 5 runes mode is forced on** (`compilerOptions.runes` in `svelte.config.js`). Use `$props()`, `$state()`, `$derived()`, etc. — not the legacy `export let` / reactive `$:` syntax.
 
 **Two surfaces:**
+
 - Landing page (`src/routes/+page.svelte`) composes section components from `src/lib/components/sections/` (Hero, About, Skills, Projects, Experience, Contact).
 - Blog under `src/routes/blog/`.
 
 **Blog content pipeline:**
+
 - Posts are Markdown files in `src/content/posts/*.md`, processed by **mdsvex** (configured in `svelte.config.js`; `.md` and `.svx` are treated as Svelte components).
 - Each post starts with YAML frontmatter: `title`, `date` (string, e.g. `'2024-09-30'`), `description`, `tags` (list).
 - `blog/+page.ts` builds the post index via `import.meta.glob('/src/content/posts/*.md', { eager: true })`, reading each module's exported `metadata` and sorting by `date` descending.

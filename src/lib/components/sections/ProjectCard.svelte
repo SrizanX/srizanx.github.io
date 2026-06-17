@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Project } from '$lib/data/projects';
+	import ExternalLink from '$lib/components/ExternalLink.svelte';
 	import ProjectGallery from './ProjectGallery.svelte';
 
 	let { project }: { project: Project } = $props();
@@ -18,7 +19,8 @@
 		<p class="mt-3 text-sm leading-relaxed text-text-muted">{project.desc}</p>
 		<div class="mt-4 flex flex-wrap gap-2">
 			{#each project.tags as tag (tag)}
-				<span class="rounded-full bg-primary-light/10 px-3 py-1 text-xs text-primary-light">{tag}</span
+				<span class="rounded-full bg-primary-light/10 px-3 py-1 text-xs text-primary-light"
+					>{tag}</span
 				>
 			{/each}
 		</div>
@@ -27,19 +29,17 @@
 				class="mt-4 flex gap-4 transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100"
 			>
 				{#if project.github}
-					<a
+					<ExternalLink
 						href={project.github}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="text-sm text-text-muted transition-colors hover:text-white">GitHub →</a
+						class="text-sm text-text-muted transition-colors hover:text-white"
+						>GitHub →</ExternalLink
 					>
 				{/if}
 				{#if project.live}
-					<a
+					<ExternalLink
 						href={project.live}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="text-sm text-text-muted transition-colors hover:text-white">Play Store →</a
+						class="text-sm text-text-muted transition-colors hover:text-white"
+						>Play Store →</ExternalLink
 					>
 				{/if}
 			</div>

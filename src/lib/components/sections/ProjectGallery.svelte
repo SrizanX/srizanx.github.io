@@ -96,7 +96,7 @@
 			type="button"
 			aria-label="Previous screenshot"
 			onclick={prev}
-			class="absolute top-1/2 left-2 z-20 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-surface/60 text-white opacity-0 backdrop-blur-sm transition-all duration-300 hover:bg-surface/90 group-hover/gallery:opacity-100"
+			class="absolute top-1/2 left-2 z-20 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-surface/60 text-white opacity-0 backdrop-blur-sm transition-all duration-300 group-hover/gallery:opacity-100 hover:bg-surface/90"
 		>
 			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4">
 				<path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" />
@@ -106,7 +106,7 @@
 			type="button"
 			aria-label="Next screenshot"
 			onclick={next}
-			class="absolute top-1/2 right-2 z-20 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-surface/60 text-white opacity-0 backdrop-blur-sm transition-all duration-300 hover:bg-surface/90 group-hover/gallery:opacity-100"
+			class="absolute top-1/2 right-2 z-20 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-surface/60 text-white opacity-0 backdrop-blur-sm transition-all duration-300 group-hover/gallery:opacity-100 hover:bg-surface/90"
 		>
 			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4">
 				<path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
@@ -114,7 +114,7 @@
 		</button>
 
 		<div class="absolute inset-x-0 bottom-3 z-20 flex justify-center gap-1.5">
-			{#each screenshots as _, i (i)}
+			{#each screenshots as src, i (src)}
 				<button
 					type="button"
 					aria-label="Show screenshot {i + 1}"
@@ -139,7 +139,10 @@
 		aria-label="{title} screenshots"
 	>
 		<!-- backdrop: click to close -->
-		<button class="absolute inset-0 cursor-zoom-out" aria-label="Close" onclick={() => (open = false)}
+		<button
+			class="absolute inset-0 cursor-zoom-out"
+			aria-label="Close"
+			onclick={() => (open = false)}
 		></button>
 
 		<img
