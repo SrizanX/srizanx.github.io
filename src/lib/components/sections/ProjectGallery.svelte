@@ -8,6 +8,7 @@
 	let open = $state(false);
 	let visible = $state(false);
 	let node: HTMLElement;
+	let dialog = $state<HTMLElement>();
 
 	const prev = () => (index = (index - 1 + screenshots.length) % screenshots.length);
 	const next = () => (index = (index + 1) % screenshots.length);
@@ -31,11 +32,16 @@
 		return () => clearInterval(id);
 	});
 
-	// Lock page scroll while the lightbox is open.
+	// Lock page scroll, move focus into the lightbox, and restore it on close.
 	$effect(() => {
 		if (!open) return;
+		const trigger = document.activeElement as HTMLElement | null;
 		document.body.style.overflow = 'hidden';
-		return () => (document.body.style.overflow = '');
+		dialog?.focus();
+		return () => {
+			document.body.style.overflow = '';
+			trigger?.focus();
+		};
 	});
 
 	function onKey(e: KeyboardEvent) {
@@ -43,6 +49,23 @@
 		if (e.key === 'Escape') open = false;
 		else if (e.key === 'ArrowLeft') prev();
 		else if (e.key === 'ArrowRight') next();
+		else if (e.key === 'Tab') {
+			// Trap focus within the dialog so Tab can't reach the page behind it.
+			const focusable = dialog?.querySelectorAll<HTMLElement>(
+				'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+			);
+			if (!focusable?.length) return;
+			const first = focusable[0];
+			const last = focusable[focusable.length - 1];
+			const active = document.activeElement;
+			if (e.shiftKey && (active === first || active === dialog)) {
+				e.preventDefault();
+				last.focus();
+			} else if (!e.shiftKey && active === last) {
+				e.preventDefault();
+				first.focus();
+			}
+		}
 	}
 </script>
 
@@ -133,8 +156,10 @@
 
 {#if open}
 	<div
+		bind:this={dialog}
 		use:portal
-		class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm md:p-8"
+		tabindex="-1"
+		class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm outline-none md:p-8"
 		role="dialog"
 		aria-modal="true"
 		aria-label="{title} screenshots"

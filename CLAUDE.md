@@ -39,7 +39,7 @@ Bio, experience, skills, and contact details for the site owner live in `DATA.md
 - `blog/+page.ts` builds the post index via `import.meta.glob('/src/content/posts/*.md', { eager: true })`, reading each module's exported `metadata` and sorting by `date` descending.
 - `blog/[slug]/+page.ts` dynamically imports `content/posts/${slug}.md`, rendering `post.default` as a component and pulling `post.metadata`; a missing file throws `error(404)`.
 
-**To add a blog post:** drop a new `.md` file in `src/content/posts/` with the frontmatter above. It is auto-indexed and routed. **Then manually add its `<url>` entry to `src/routes/sitemap.xml/+server.ts`** — the sitemap is hand-maintained, not generated from the posts glob.
+**To add a blog post:** drop a new `.md` file in `src/content/posts/` with the frontmatter above. It is auto-indexed, routed, and included in the sitemap — `src/routes/sitemap.xml/+server.ts` discovers posts via the same `import.meta.glob` as the blog index, so no manual sitemap edit is needed.
 
 **Reveal animations:** `src/lib/components/` and sections use the Svelte actions in `src/lib/actions/reveal.ts` — `use:reveal` (IntersectionObserver fade/translate-in) and `use:staggerReveal` (incrementally delays direct children). Prefer these over ad-hoc scroll listeners.
 
