@@ -1,42 +1,56 @@
-# sv
+# Portfolio — Mahdi Saifullah Srizan
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+My personal portfolio and blog. Built as a fully static site and deployed to GitHub Pages.
 
-## Creating a project
+🔗 **Live:** [srizanx.github.io](https://srizanx.github.io)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Tech stack
 
-```sh
-# create a new project
-npx sv create my-app
-```
+- **[SvelteKit 2](https://svelte.dev/docs/kit) + [Svelte 5](https://svelte.dev/)** (runes mode) — statically prerendered via `adapter-static`
+- **[Tailwind CSS v4](https://tailwindcss.com/)** — configured in CSS (`src/routes/layout.css`), no `tailwind.config.js`
+- **[mdsvex](https://mdsvex.pngwn.io/)** — Markdown-powered blog posts
+- **TypeScript**, ESLint, Prettier
+- **GitHub Pages** via GitHub Actions
 
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-npx sv@0.14.0 create --template minimal --types ts --add prettier eslint sveltekit-adapter="adapter:auto" devtools-json mdsvex tailwindcss="plugins:typography" --install npm .
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Getting started
 
 ```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+npm install
+npm run dev          # start the dev server (http://localhost:5173)
 ```
 
-## Building
+### Scripts
 
-To create a production version of your app:
+| Command           | Description                          |
+| ----------------- | ------------------------------------ |
+| `npm run dev`     | Start the Vite dev server            |
+| `npm run build`   | Build the static site into `build/`  |
+| `npm run preview` | Preview the production build locally |
+| `npm run check`   | Type-check with `svelte-check`       |
+| `npm run lint`    | Prettier check + ESLint              |
+| `npm run format`  | Format with Prettier                 |
 
-```sh
-npm run build
+## Editing content
+
+- **Projects** — edit `src/lib/data/projects.ts`. Set `featured: true` to surface a project on the home page; the full list lives at `/projects`. Screenshots go in `static/screenshots/<project>/`.
+- **Blog posts** — add a Markdown file to `src/content/posts/` with `title`, `date`, `description`, and `tags` frontmatter. It's auto-indexed and routed at `/blog/<filename>`.
+- **Skills / experience / about** — edited inline in their respective components under `src/lib/components/sections/`.
+
+## Project structure
+
+```
+src/
+├── routes/                 # pages: /, /projects, /blog, /blog/[slug], sitemap.xml
+├── lib/
+│   ├── components/         # Header, Footer, Seo, sections/, icons/
+│   ├── data/projects.ts    # project list (single source of truth)
+│   ├── actions/            # reveal (scroll animations) + portal
+│   └── assets/             # images
+├── content/posts/          # blog posts (Markdown)
+└── routes/layout.css       # Tailwind theme + global styles
+static/                     # served at web root (resume, og-image, screenshots, robots)
 ```
 
-You can preview the production build with `npm run preview`.
+## Deployment
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Pushing to `main` triggers [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), which builds the site and publishes `build/` to GitHub Pages. The default working branch is `dev`.

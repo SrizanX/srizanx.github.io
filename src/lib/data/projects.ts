@@ -14,11 +14,7 @@ export const projects: Project[] = [
 		title: 'Jatri - Multimode Travel App',
 		desc: 'A multimode travel app that simplifies bus ticketing, car rentals, and group trip planning into a single platform. Serving thousands of daily commuters across Bangladesh.',
 		tags: ['Dart', 'Flutter', 'Bloc', 'Google Maps SDK', 'Firebase'],
-		screenshots: [
-			'/screenshots/jatri/01.webp',
-			'/screenshots/jatri/02.webp',
-			'/screenshots/jatri/03.webp'
-		],
+		screenshots: ['/screenshots/jatri/01.webp', '/screenshots/jatri/02.webp'],
 		live: 'https://play.google.com/store/apps/details?id=com.jatri.jatriuser&hl=en',
 		featured: true
 	},

@@ -2,7 +2,7 @@
 	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
 	import { scale } from 'svelte/transition';
-	import socialPhoto from '$lib/assets/social_photo.png';
+	import socialPhoto from '$lib/assets/social_photo.webp';
 
 	// Extracted variables
 	const designation = 'Android Developer';

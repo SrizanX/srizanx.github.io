@@ -7,7 +7,7 @@
 	let {
 		title,
 		description,
-		image = '/og-image.png',
+		image = '/og-image.jpg',
 		type = 'website'
 	}: {
 		title: string;
