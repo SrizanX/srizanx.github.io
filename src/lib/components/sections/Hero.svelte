@@ -5,7 +5,7 @@
 	import socialPhoto from '$lib/assets/social_photo.webp';
 
 	// Extracted variables
-	const designation = 'Android Developer';
+	const designation = 'Mobile Application Developer';
 	const name = 'Srizan';
 	const description = `
 Android native app developer with 4+ years of experience. Passionate about building robust, high-quality mobile applications. Skilled in Kotlin and Java for Android, and also experienced with Flutter for cross-platform development and exploring Kotlin Multiplatform (KMP) for sharing code across Android and iOS.`;

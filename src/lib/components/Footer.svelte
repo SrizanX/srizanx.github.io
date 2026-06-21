@@ -9,7 +9,7 @@
 				<a href={resolve('/')} class="text-xl font-bold text-primary-light"
 					>Mahdi Saifullah Srizan</a
 				>
-				<p class="mt-1 text-sm text-text-muted">Android Developer</p>
+				<p class="mt-1 text-sm text-text-muted">Mobile Application Developer</p>
 			</div>
 		</div>
 
