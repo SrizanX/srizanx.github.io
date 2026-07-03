@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Project } from '$lib/data/projects';
+	import { projectModelLabels, type Project } from '$lib/data/projects';
 	import ExternalLink from '$lib/components/ExternalLink.svelte';
 	import ProjectGallery from './ProjectGallery.svelte';
 
@@ -13,7 +13,12 @@
 		<ProjectGallery screenshots={project.screenshots} title={project.title} />
 	{/if}
 	<div class="p-6">
-		<h3 class="text-lg font-semibold transition-colors group-hover:text-primary-light">
+		<span
+			class="inline-block rounded-full border border-white/15 px-2.5 py-0.5 text-xs font-medium tracking-wide text-text-muted uppercase"
+		>
+			{projectModelLabels[project.model]}
+		</span>
+		<h3 class="mt-3 text-lg font-semibold transition-colors group-hover:text-primary-light">
 			{project.title}
 		</h3>
 		<p class="mt-3 text-sm leading-relaxed text-text-muted">{project.desc}</p>

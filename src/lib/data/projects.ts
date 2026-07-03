@@ -1,5 +1,14 @@
 export type ProjectCategory = 'professional' | 'personal';
 
+/** Who the app is for — shown as a badge on each project card. */
+export type ProjectModel = 'b2b' | 'b2c' | 'personal';
+
+export const projectModelLabels: Record<ProjectModel, string> = {
+	b2b: 'B2B',
+	b2c: 'B2C',
+	personal: 'Personal'
+};
+
 export type Project = {
 	title: string;
 	desc: string;
@@ -7,6 +16,8 @@ export type Project = {
 	screenshots: string[];
 	/** Client/work apps vs. personal/open-source builds. Drives the /projects tabs. */
 	category: ProjectCategory;
+	/** Business model / audience — rendered as a badge on the card. */
+	model: ProjectModel;
 	github?: string;
 	live?: string;
 	/** Surfaced on the home page when true. */
@@ -20,6 +31,7 @@ export const projects: Project[] = [
 		tags: ['Dart', 'Flutter', 'Bloc', 'Google Maps SDK', 'Firebase'],
 		screenshots: ['/screenshots/jatri/01.webp', '/screenshots/jatri/02.webp'],
 		category: 'professional',
+		model: 'b2c',
 		live: 'https://play.google.com/store/apps/details?id=com.jatri.jatriuser&hl=en',
 		featured: true
 	},
@@ -29,7 +41,7 @@ export const projects: Project[] = [
 		tags: ['Kotlin', 'Room', 'Retrofit', 'WorkManager', 'Offline-First'],
 		screenshots: [],
 		category: 'professional',
-		featured: true
+		model: 'b2b'
 	},
 	{
 		title: 'Intracity Counterman (Manual Sync)',
@@ -37,6 +49,52 @@ export const projects: Project[] = [
 		tags: ['Kotlin', 'Room', 'Retrofit', 'Offline-First'],
 		screenshots: [],
 		category: 'professional',
+		model: 'b2b'
+	},
+	{
+		title: 'Toll Collection',
+		desc: 'Offline-first POS app for booth-based toll collection on Sunmi terminals. Records vehicle passages, prints receipts on-device, and queues transactions locally, syncing to the central server in the background when connectivity is available.',
+		tags: ['Kotlin', 'Room', 'Retrofit', 'WorkManager', 'Sunmi'],
+		screenshots: ['/screenshots/toll/01.webp'],
+		category: 'professional',
+		model: 'b2b',
+		featured: true
+	},
+	{
+		title: 'Toll Collection (Hanif Flyover)',
+		desc: 'Specialized toll collection build tailored for the Hanif Flyover, adapting the toll POS workflow to the flyover’s vehicle classes and fare structure. Runs fully offline with automatic background sync, and prints on both Sunmi terminals and USB printers for fast receipts with automatic paper cut.',
+		tags: ['Kotlin', 'Room', 'Retrofit', 'WorkManager', 'Sunmi', 'USB Printing'],
+		screenshots: ['/screenshots/toll-hanif/01.webp', '/screenshots/toll-hanif/02.webp'],
+		category: 'professional',
+		model: 'b2b',
+		featured: true
+	},
+	{
+		title: 'Launch Deck Ticketing',
+		desc: 'Offline-first POS app for issuing deck tickets aboard passenger launches. Handles fare selection, local storage of sales, and background sync. Prints on Sunmi terminals and can also issue vehicle ferry tickets over Bluetooth from any phone.',
+		tags: ['Kotlin', 'Room', 'Retrofit', 'WorkManager', 'Sunmi', 'Bluetooth Printing'],
+		screenshots: [
+			'/screenshots/deck/01.webp',
+			'/screenshots/deck/02.webp',
+			'/screenshots/deck/03.webp',
+			'/screenshots/deck/04.webp'
+		],
+		category: 'professional',
+		model: 'b2b',
+		featured: true
+	},
+	{
+		title: 'Cruise Deck Ticketing (Saint Martin)',
+		desc: 'Deck ticketing POS for Saint Martin cruise ships, tuned to cruise routes and passenger fares. Operates fully offline on Sunmi terminals with on-device printing and automatic background sync to the central server.',
+		tags: ['Kotlin', 'Room', 'Retrofit', 'WorkManager', 'Sunmi'],
+		screenshots: [
+			'/screenshots/deck-cruise/01.webp',
+			'/screenshots/deck-cruise/02.webp',
+			'/screenshots/deck-cruise/03.webp',
+			'/screenshots/deck-cruise/04.webp'
+		],
+		category: 'professional',
+		model: 'b2b',
 		featured: true
 	},
 	{
@@ -52,7 +110,9 @@ export const projects: Project[] = [
 			'/screenshots/xtra-pr71/06.webp'
 		],
 		category: 'personal',
-		github: 'https://github.com/srizanx/xtra_pr_71'
+		model: 'personal',
+		github: 'https://github.com/srizanx/xtra_pr_71',
+		featured: true
 	}
 ];
 
