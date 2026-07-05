@@ -14,11 +14,16 @@
 
 html {
 	scroll-behavior: smooth;
-	/* Decorative, off-screen elements (skill tooltips, hero blobs) must not widen the
-	   document and cause horizontal scroll / an apparent "zoom-in" on mobile. The clip
-	   must sit on the root element (that's where scroll width is measured); `clip` guards
-	   this without creating a scroll container the way `overflow-x: hidden` would (so the
-	   fixed header and smooth anchor scrolling keep working). */
+}
+
+/* Decorative elements that extend past the viewport (skill hover tooltips, hero glow
+   blobs) must not widen the document. If they do, the page's horizontal scroll grows,
+   which also expands the containing block for the `fixed` header — making `w-full`
+   resolve wider than the screen and clipping the hamburger on the right.
+   Clipping on this non-root wrapper genuinely contains that overflow (clipping the root
+   <html> does not). `overflow-x: clip` (not `hidden`) affects the x-axis only, so the
+   y-axis stays visible and tooltips can still pop up above their chips. */
+main {
 	overflow-x: clip;
 }
 
