@@ -35,6 +35,24 @@ export const projects: Project[] = [
 		live: 'https://play.google.com/store/apps/details?id=com.jatri.jatriuser&hl=en',
 		featured: true
 	},
+
+	{
+		title: 'XTRA PR71 Router Controller',
+		desc: 'Open-source Android app to control and manage XTRA PR71 pocket routers — power off, restart, and reset remotely, toggle mobile data, monitor connection status, and read or send SMS through the router SIM. Credentials are stored on-device and never sent to external servers.',
+		tags: ['Dart', 'Flutter', 'Bloc', 'Freezed', 'Open Source'],
+		screenshots: [
+			'/screenshots/xtra-pr71/01.webp',
+			'/screenshots/xtra-pr71/02.webp',
+			'/screenshots/xtra-pr71/03.webp',
+			'/screenshots/xtra-pr71/04.webp',
+			'/screenshots/xtra-pr71/05.webp',
+			'/screenshots/xtra-pr71/06.webp'
+		],
+		category: 'personal',
+		model: 'personal',
+		github: 'https://github.com/srizanx/xtra_pr_71',
+		featured: true
+	},
 	{
 		title: 'Intracity Counterman (Auto Sync)',
 		desc: 'Offline-first POS ticketing app for fixed bus counters. Fetches route configs on launch, then operates fully offline. Ticket data syncs to the server automatically at periodic intervals.',
@@ -67,7 +85,7 @@ export const projects: Project[] = [
 		screenshots: ['/screenshots/toll-hanif/01.webp', '/screenshots/toll-hanif/02.webp'],
 		category: 'professional',
 		model: 'b2b',
-		featured: true
+		featured: false
 	},
 	{
 		title: 'Launch Deck Ticketing',
@@ -95,24 +113,7 @@ export const projects: Project[] = [
 		],
 		category: 'professional',
 		model: 'b2b',
-		featured: true
-	},
-	{
-		title: 'XTRA PR71 Router Controller',
-		desc: 'Open-source Android app to control and manage XTRA PR71 pocket routers — power off, restart, and reset remotely, toggle mobile data, monitor connection status, and read or send SMS through the router SIM. Credentials are stored on-device and never sent to external servers.',
-		tags: ['Dart', 'Flutter', 'Bloc', 'Freezed', 'Open Source'],
-		screenshots: [
-			'/screenshots/xtra-pr71/01.webp',
-			'/screenshots/xtra-pr71/02.webp',
-			'/screenshots/xtra-pr71/03.webp',
-			'/screenshots/xtra-pr71/04.webp',
-			'/screenshots/xtra-pr71/05.webp',
-			'/screenshots/xtra-pr71/06.webp'
-		],
-		category: 'personal',
-		model: 'personal',
-		github: 'https://github.com/srizanx/xtra_pr_71',
-		featured: true
+		featured: false
 	}
 ];
 

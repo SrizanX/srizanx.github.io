@@ -7,12 +7,19 @@
 </script>
 
 <div
-	class="group overflow-hidden rounded-lg border border-white/10 bg-surface-light transition-all duration-300 hover:-translate-y-1 hover:border-primary-light/40 hover:shadow-xl hover:shadow-primary-light/5"
+	class="group flex flex-col overflow-hidden rounded-lg border border-white/10 bg-surface-light transition-all duration-300 hover:-translate-y-1 hover:border-primary-light/40 hover:shadow-xl hover:shadow-primary-light/5 sm:flex-row {project
+		.screenshots.length > 0
+		? 'sm:min-h-64'
+		: ''}"
 >
 	{#if project.screenshots.length > 0}
-		<ProjectGallery screenshots={project.screenshots} title={project.title} />
+		<ProjectGallery
+			screenshots={project.screenshots}
+			title={project.title}
+			class="aspect-4/5 w-full sm:aspect-auto sm:w-2/5 sm:max-w-52 sm:shrink-0 sm:self-stretch"
+		/>
 	{/if}
-	<div class="p-6">
+	<div class="flex-1 p-6">
 		<span
 			class="inline-block rounded-full border border-white/15 px-2.5 py-0.5 text-xs font-medium tracking-wide text-text-muted uppercase"
 		>

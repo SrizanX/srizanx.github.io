@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { portal } from '$lib/actions/portal';
 
-	let { screenshots, title }: { screenshots: string[]; title: string } = $props();
+	let {
+		screenshots,
+		title,
+		class: klass = 'aspect-[16/10]'
+	}: { screenshots: string[]; title: string; class?: string } = $props();
 
 	let index = $state(0);
 	let paused = $state(false);
@@ -71,7 +75,7 @@
 
 <div
 	bind:this={node}
-	class="group/gallery relative aspect-[16/10] overflow-hidden bg-surface"
+	class="group/gallery relative overflow-hidden bg-surface {klass}"
 	role="group"
 	aria-label="{title} screenshots"
 	onmouseenter={() => (paused = true)}
@@ -91,19 +95,19 @@
 				loading="lazy"
 				class="absolute inset-0 h-full w-full scale-110 object-cover blur-2xl"
 			/>
-			<!-- full image, never cropped -->
+			<!-- mobile: full-bleed, anchored to the top; sm+: contained over the blur fill -->
 			<img
 				{src}
 				alt="{title} screenshot {i + 1}"
 				loading="lazy"
-				class="absolute inset-0 h-full w-full object-contain"
+				class="absolute inset-0 h-full w-full object-cover object-top sm:object-contain"
 			/>
 		</div>
 	{/each}
 
 	<!-- depth/legibility wash + subtle lift on hover -->
 	<div
-		class="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface/60 via-transparent to-transparent transition-opacity duration-500 group-hover/gallery:opacity-60"
+		class="pointer-events-none absolute inset-0 bg-linear-to-t from-surface/60 via-transparent to-transparent transition-opacity duration-500 group-hover/gallery:opacity-60"
 	></div>
 
 	<!-- click anywhere on the image to open the lightbox -->

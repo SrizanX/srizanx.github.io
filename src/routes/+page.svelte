@@ -15,7 +15,7 @@
 
 <Hero />
 <About />
-<Skills />
 <Projects />
+<Skills />
 <Experience />
 <Contact />

@@ -10,10 +10,7 @@
 		<h2 use:reveal class="text-3xl font-bold">Projects</h2>
 		<div use:reveal={{ delay: 100 }} class="mt-2 h-1 w-16 rounded bg-primary-light"></div>
 
-		<div
-			use:staggerReveal={{ stagger: 120, y: 40 }}
-			class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-		>
+		<div use:staggerReveal={{ stagger: 120, y: 40 }} class="mt-12 grid gap-6 lg:grid-cols-2">
 			{#each featuredProjects as project (project.title)}
 				<ProjectCard {project} />
 			{/each}

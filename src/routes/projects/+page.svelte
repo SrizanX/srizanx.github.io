@@ -61,10 +61,7 @@
 
 		<!-- Re-key on the active filter so the staggered reveal replays for each new set. -->
 		{#key active}
-			<div
-				use:staggerReveal={{ stagger: 80, y: 40 }}
-				class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-			>
+			<div use:staggerReveal={{ stagger: 80, y: 40 }} class="mt-8 grid gap-6 lg:grid-cols-2">
 				{#each visible as project (project.title)}
 					<ProjectCard {project} />
 				{/each}

@@ -14,6 +14,12 @@
 
 html {
 	scroll-behavior: smooth;
+	/* Decorative, off-screen elements (skill tooltips, hero blobs) must not widen the
+	   document and cause horizontal scroll / an apparent "zoom-in" on mobile. The clip
+	   must sit on the root element (that's where scroll width is measured); `clip` guards
+	   this without creating a scroll container the way `overflow-x: hidden` would (so the
+	   fixed header and smooth anchor scrolling keep working). */
+	overflow-x: clip;
 }
 
 /* Honour the OS "reduce motion" setting: neutralise CSS animations, transitions, and smooth scroll. */
