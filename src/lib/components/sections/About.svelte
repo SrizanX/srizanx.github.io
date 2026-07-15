@@ -6,7 +6,7 @@
 	const stats = [
 		{ value: 4, suffix: '+', label: 'Years Experience' },
 		{ value: 15, suffix: '+', label: 'B2B Apps Built' },
-		{ value: 1, suffix: '', label: 'Flutter Project In Play Store' }
+		{ value: 2, suffix: '', label: 'Flutter Project In Play Store' }
 	];
 
 	// Extracted About content

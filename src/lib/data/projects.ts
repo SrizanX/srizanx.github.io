@@ -50,6 +50,7 @@ export const projects: Project[] = [
 		],
 		category: 'personal',
 		model: 'personal',
+		live: 'https://play.google.com/store/apps/details?id=com.srizan.xtra_pr_71',
 		github: 'https://github.com/srizanx/xtra_pr_71',
 		featured: true
 	},

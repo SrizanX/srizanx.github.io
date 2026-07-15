@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { projectModelLabels, type Project } from '$lib/data/projects';
 	import ExternalLink from '$lib/components/ExternalLink.svelte';
+	import GooglePlayIcon from '$lib/components/icons/GooglePlayIcon.svelte';
 	import ProjectGallery from './ProjectGallery.svelte';
 
 	let { project }: { project: Project } = $props();
@@ -37,21 +38,21 @@
 			{/each}
 		</div>
 		{#if project.github || project.live}
-			<div
-				class="mt-4 flex gap-4 transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100"
-			>
+			<div class="mt-5 flex flex-wrap items-center gap-4">
+				{#if project.live}
+					<ExternalLink
+						href={project.live}
+						class="inline-flex items-center gap-2 rounded-full bg-black px-4 py-2 text-sm font-semibold text-white ring-1 ring-white/25 transition-all ring-inset hover:bg-neutral-900 hover:ring-white/60"
+					>
+						<GooglePlayIcon class="h-4 w-4" />
+						Get it on Google Play
+					</ExternalLink>
+				{/if}
 				{#if project.github}
 					<ExternalLink
 						href={project.github}
 						class="text-sm text-text-muted transition-colors hover:text-white"
 						>GitHub →</ExternalLink
-					>
-				{/if}
-				{#if project.live}
-					<ExternalLink
-						href={project.live}
-						class="text-sm text-text-muted transition-colors hover:text-white"
-						>Play Store →</ExternalLink
 					>
 				{/if}
 			</div>
