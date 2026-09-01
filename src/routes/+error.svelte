@@ -23,7 +23,7 @@
 		{/if}
 	</h1>
 
-	<div class="mt-3 h-1 w-16 rounded bg-primary-light"></div>
+	<div class="mt-2 h-1 w-16 rounded bg-primary-light"></div>
 
 	<p class="mt-6 max-w-sm leading-relaxed text-text-muted">
 		{#if page.status === 404}
@@ -33,10 +33,5 @@
 		{/if}
 	</p>
 
-	<a
-		href={resolve('/')}
-		class="mt-8 rounded-lg bg-primary-light px-6 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-primary hover:shadow-lg hover:shadow-primary-light/20"
-	>
-		← Back to Home
-	</a>
+	<a href={resolve('/')} class="btn btn-primary mt-8">← Back to Home</a>
 </div>

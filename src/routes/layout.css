@@ -16,6 +16,46 @@ html {
 	scroll-behavior: smooth;
 }
 
+/* Shared surface for anything card-like (stat tiles, project cards, blog cards).
+   Only the invariant part lives here — callers add their own padding, layout, and
+   hover treatment, since those legitimately differ per card. */
+@utility card {
+	@apply rounded-lg border border-white/10 bg-surface-light transition-all duration-300;
+}
+
+/* Hover treatment for cards that are themselves links (project cards, blog cards).
+   Deliberately not applied to the About stat tiles: those aren't clickable, so they get
+   a border tint on hover but never lift. */
+@utility card-hover {
+	@apply hover:-translate-y-0.5 hover:border-primary-light/40 hover:shadow-lg hover:shadow-primary-light/5;
+}
+
+/* The accent tag/chip used for tech tags on project cards and blog posts. */
+@utility tag {
+	@apply rounded-full bg-primary-light/10 px-3 py-1 text-xs text-primary-light;
+}
+
+/* Buttons. `btn` carries only the shared metrics — each variant sets its own radius and
+   colours, so variants never fight `btn` over the same property. */
+@utility btn {
+	@apply px-6 py-3 text-sm font-medium transition-all;
+}
+
+@utility btn-primary {
+	@apply rounded-lg bg-primary-light text-white shadow-lg shadow-primary-light/25;
+	@apply hover:-translate-y-0.5 hover:bg-primary hover:shadow-xl hover:shadow-primary-light/30;
+}
+
+@utility btn-secondary {
+	@apply rounded-lg border border-white/20 text-text-muted;
+	@apply hover:-translate-y-0.5 hover:border-white/40 hover:text-white;
+}
+
+@utility btn-ghost {
+	@apply inline-flex items-center gap-2 rounded-full border border-white/15 text-text;
+	@apply hover:border-primary-light/50 hover:text-primary-light;
+}
+
 /* Decorative elements that extend past the viewport (skill hover tooltips, hero glow
    blobs) must not widen the document. If they do, the page's horizontal scroll grows,
    which also expands the containing block for the `fixed` header — making `w-full`

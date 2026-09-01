@@ -2,6 +2,8 @@
 	import { resolve } from '$app/paths';
 	import Seo from '$lib/components/Seo.svelte';
 	import { name } from '$lib/data/profile';
+	import SectionHeading from '$lib/components/ui/SectionHeading.svelte';
+	import FilterPill from '$lib/components/ui/FilterPill.svelte';
 
 	let { data } = $props();
 
@@ -39,31 +41,21 @@
 
 <section class="min-h-screen pt-28 pb-24">
 	<div class="mx-auto max-w-4xl px-6">
-		<h1 class="text-4xl font-bold">Blog</h1>
+		<SectionHeading as="h1" title="Blog" />
 		<p class="mt-4 text-text-muted">
 			Thoughts on Android development, Kotlin, and mobile engineering.
 		</p>
-		<div class="mt-2 h-1 w-16 rounded bg-primary-light"></div>
 
 		<!-- Topic filters -->
 		<div class="mt-8 flex flex-wrap gap-2">
-			<button
-				class="rounded-full px-4 py-1.5 text-xs font-medium transition-all {activeTag === null
-					? 'bg-primary-light text-white'
-					: 'bg-surface-light text-text-muted hover:text-white'}"
-				onclick={() => (activeTag = null)}
-			>
-				All
-			</button>
+			<FilterPill active={activeTag === null} onclick={() => (activeTag = null)}>All</FilterPill>
 			{#each allTags as tag (tag)}
-				<button
-					class="rounded-full px-4 py-1.5 text-xs font-medium transition-all {activeTag === tag
-						? 'bg-primary-light text-white'
-						: 'bg-surface-light text-text-muted hover:text-white'}"
+				<FilterPill
+					active={activeTag === tag}
 					onclick={() => (activeTag = activeTag === tag ? null : tag)}
 				>
 					{tag}
-				</button>
+				</FilterPill>
 			{/each}
 		</div>
 
@@ -78,7 +70,7 @@
 						{#each group.posts as post (post.slug)}
 							<a
 								href={resolve('/blog/[slug]', { slug: post.slug })}
-								class="group block rounded-lg border border-white/10 bg-surface-light p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-light/40 hover:shadow-lg hover:shadow-primary-light/5"
+								class="card card-hover group block p-6"
 							>
 								<div class="flex items-center gap-3 text-sm text-accent">
 									<time datetime={post.date}>{post.date}</time>
@@ -92,11 +84,7 @@
 								{#if post.tags.length}
 									<div class="mt-4 flex flex-wrap gap-2">
 										{#each post.tags as tag (tag)}
-											<span
-												class="rounded-full bg-primary-light/10 px-3 py-1 text-xs text-primary-light"
-											>
-												{tag}
-											</span>
+											<span class="tag">{tag}</span>
 										{/each}
 									</div>
 								{/if}

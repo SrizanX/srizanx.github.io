@@ -21,9 +21,7 @@
 			{#if data.meta.tags}
 				<div class="mt-4 flex flex-wrap gap-2">
 					{#each data.meta.tags as tag (tag)}
-						<span class="rounded-full bg-primary-light/10 px-3 py-1 text-xs text-primary-light"
-							>{tag}</span
-						>
+						<span class="tag">{tag}</span>
 					{/each}
 				</div>
 			{/if}

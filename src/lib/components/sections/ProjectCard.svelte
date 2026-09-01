@@ -8,8 +8,8 @@
 </script>
 
 <div
-	class="group flex flex-col overflow-hidden rounded-lg border border-white/10 bg-surface-light transition-all duration-300 hover:-translate-y-1 hover:border-primary-light/40 hover:shadow-xl hover:shadow-primary-light/5 sm:flex-row {project
-		.screenshots.length > 0
+	class="card card-hover group flex flex-col overflow-hidden sm:flex-row {project.screenshots
+		.length > 0
 		? 'sm:min-h-64'
 		: ''}"
 >
@@ -32,9 +32,7 @@
 		<p class="mt-3 text-sm leading-relaxed text-text-muted">{project.desc}</p>
 		<div class="mt-4 flex flex-wrap gap-2">
 			{#each project.tags as tag (tag)}
-				<span class="rounded-full bg-primary-light/10 px-3 py-1 text-xs text-primary-light"
-					>{tag}</span
-				>
+				<span class="tag">{tag}</span>
 			{/each}
 		</div>
 		{#if project.github || project.live}

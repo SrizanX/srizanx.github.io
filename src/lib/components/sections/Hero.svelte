@@ -55,26 +55,12 @@
 					{description}
 				</p>
 				<div class="hero-item mt-8 flex flex-wrap gap-4" style="animation-delay: 500ms">
-					<a
-						href="{resolve('/')}resume.pdf"
-						download={resumeFileName}
-						class="rounded-lg bg-primary-light px-6 py-3 text-sm font-medium text-white shadow-lg shadow-primary-light/25 transition-all hover:-translate-y-0.5 hover:bg-primary hover:shadow-xl hover:shadow-primary-light/30"
-					>
+					<a href="{resolve('/')}resume.pdf" download={resumeFileName} class="btn btn-primary">
 						Download Resume
 					</a>
 
-					<a
-						href="{resolve('/')}#projects"
-						class="rounded-lg border border-white/20 px-6 py-3 text-sm font-medium text-text-muted transition-all hover:-translate-y-0.5 hover:border-white/40 hover:text-white"
-					>
-						View Projects
-					</a>
-					<a
-						href="{resolve('/')}#contact"
-						class="rounded-lg border border-white/20 px-6 py-3 text-sm font-medium text-text-muted transition-all hover:-translate-y-0.5 hover:border-white/40 hover:text-white"
-					>
-						Contact Me
-					</a>
+					<a href="{resolve('/')}#projects" class="btn btn-secondary">View Projects</a>
+					<a href="{resolve('/')}#contact" class="btn btn-secondary">Contact Me</a>
 				</div>
 			</div>
 			<!-- Photo -->
