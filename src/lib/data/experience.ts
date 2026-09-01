@@ -1,7 +1,8 @@
 export type Role = {
 	title: string;
+	/** `YYYY-MM` (preferred, renders as "Mar 2025") or a bare `YYYY`. */
 	start: string;
-	/** Inclusive end; `null` means the role is ongoing ("Present"). */
+	/** Inclusive end, same format as `start`; `null` means the role is ongoing ("Present"). */
 	end: string | null;
 	points: string[];
 };
@@ -18,12 +19,21 @@ export const experience: Company[] = [
 		url: 'https://jatri.co/',
 		roles: [
 			{
+				title: 'Sr. Software Engineer - Mobile',
+				start: '2026-01',
+				end: '2026-08',
+				points: [
+					'Implemented a disaster recovery mechanism that lets the app fetch and switch to a new API base URL at runtime, keeping it usable when the primary server goes down.',
+					'Migrated the app to a new design system, updating shared components and screen styling across the codebase.'
+				]
+			},
+			{
 				title: 'Software Engineer III - Mobile',
 				start: '2025',
-				end: null,
+				end: '2026',
 				points: [
 					'Active contributor to the development of the Jatri User App, a multimodal transportation platform for Android and iOS, built with Flutter to deliver a seamless cross-platform experience.',
-					'Maintain all the intracity bus, toll plaza and water transport pos apps.'
+					'Maintained all the intracity bus, toll plaza and water transport POS apps.'
 				]
 			},
 			{
@@ -47,7 +57,7 @@ export const experience: Company[] = [
 			},
 			{
 				title: 'Jr. Software Engineer',
-				start: '2022',
+				start: '2022-04',
 				end: '2023',
 				points: [
 					'Began my software development journey, building a strong foundation in Android development and contributing to impactful projects.',
@@ -58,11 +68,29 @@ export const experience: Company[] = [
 	}
 ];
 
-const formatYear = (end: string | null) => end ?? 'Present';
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-export const rolePeriod = (role: Role) => `${role.start} — ${formatYear(role.end)}`;
+/** Renders `YYYY-MM` as "Mon YYYY", falling back to the bare year for a `YYYY` value. */
+const formatDate = (value: string) => {
+	const [year, month] = value.split('-');
+	const name = MONTHS[Number(month) - 1];
+	return name ? `${name} ${year}` : year;
+};
 
-// Roles are listed latest-first, so the overall tenure spans the last role's
-// start to the first role's end (e.g. "2022 — Present").
-export const companyPeriod = (roles: Role[]) =>
-	`${roles[roles.length - 1].start} — ${formatYear(roles[0].end)}`;
+const formatEnd = (end: string | null) => (end === null ? 'Present' : formatDate(end));
+
+export const rolePeriod = (role: Role) => `${formatDate(role.start)} — ${formatEnd(role.end)}`;
+
+// Spans the earliest start to the latest end across all roles ("Feb 2022 — Present").
+// `YYYY-MM` and `YYYY` both compare correctly as strings, so no date parsing is needed.
+export const companyPeriod = (roles: Role[]) => {
+	const start = roles.reduce(
+		(earliest, r) => (r.start < earliest ? r.start : earliest),
+		roles[0].start
+	);
+	const ongoing = roles.some((r) => r.end === null);
+	const end = ongoing
+		? null
+		: roles.reduce((latest, r) => (r.end! > latest ? r.end! : latest), roles[0].end!);
+	return `${formatDate(start)} — ${formatEnd(end)}`;
+};
