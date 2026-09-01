@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import Seo from '$lib/components/Seo.svelte';
+	import { name } from '$lib/data/profile';
 
 	let { data } = $props();
 
@@ -32,7 +33,7 @@
 </script>
 
 <Seo
-	title="Blog — Mahdi Saifullah Srizan"
+	title="Blog — {name}"
 	description="Articles and thoughts on Android development, Kotlin, and mobile engineering."
 />
 

@@ -1,6 +1,6 @@
-export const prerender = true;
+import { SITE_URL } from '$lib/data/profile';
 
-const SITE_URL = 'https://srizanx.github.io';
+export const prerender = true;
 
 export async function GET() {
 	// Discover blog posts the same way the blog index does, so the sitemap never goes stale.

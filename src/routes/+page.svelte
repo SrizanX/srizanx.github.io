@@ -6,10 +6,11 @@
 	import Projects from '$lib/components/sections/Projects.svelte';
 	import Experience from '$lib/components/sections/Experience.svelte';
 	import Contact from '$lib/components/sections/Contact.svelte';
+	import { name } from '$lib/data/profile';
 </script>
 
 <Seo
-	title="Mahdi Saifullah Srizan — Mobile App Developer"
+	title="{name} — Mobile App Developer"
 	description="Android developer with 4+ years of experience building modern mobile applications with Kotlin, Java, and Flutter."
 />
 

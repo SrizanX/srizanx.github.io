@@ -4,6 +4,7 @@
 	import { slide } from 'svelte/transition';
 	import MenuIcon from '$lib/components/icons/MenuIcon.svelte';
 	import XIcon from '$lib/components/icons/XIcon.svelte';
+	import { name } from '$lib/data/profile';
 
 	let mobileOpen = $state(false);
 	let scrolled = $state(false);
@@ -33,7 +34,7 @@
 		: 'bg-transparent'}"
 >
 	<nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-		<a href={resolve('/')} class="text-xl font-bold text-primary-light">Mahdi Saifullah Srizan</a>
+		<a href={resolve('/')} class="text-xl font-bold text-primary-light">{name}</a>
 
 		<!-- Desktop Nav -->
 		<ul class="hidden gap-8 md:flex">

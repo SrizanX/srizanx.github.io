@@ -4,6 +4,7 @@
 	import { projects, projectCategories, type ProjectCategory } from '$lib/data/projects';
 	import ProjectCard from '$lib/components/sections/ProjectCard.svelte';
 	import Seo from '$lib/components/Seo.svelte';
+	import { name } from '$lib/data/profile';
 
 	type Filter = 'all' | ProjectCategory;
 
@@ -20,8 +21,8 @@
 </script>
 
 <Seo
-	title="Projects — Mahdi Saifullah Srizan"
-	description="A complete list of mobile apps and projects built by Mahdi Saifullah Srizan."
+	title="Projects — {name}"
+	description="A complete list of mobile apps and projects built by {name}."
 />
 
 <section class="py-24">

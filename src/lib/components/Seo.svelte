@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-
-	/** Production origin — page.url isn't reliable during static prerender, so canonical/OG URLs are built from this. */
-	const SITE_URL = 'https://srizanx.github.io';
+	import { SITE_URL, name } from '$lib/data/profile';
 
 	let {
 		title,
@@ -31,7 +29,7 @@
 	<meta property="og:description" content={description} />
 	<meta property="og:url" content={canonical} />
 	<meta property="og:image" content={imageUrl} />
-	<meta property="og:site_name" content="Mahdi Saifullah Srizan" />
+	<meta property="og:site_name" content={name} />
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image" />

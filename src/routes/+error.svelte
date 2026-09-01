@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
+	import { name } from '$lib/data/profile';
 </script>
 
 <svelte:head>
-	<title>{page.status} — Mahdi Saifullah Srizan</title>
+	<title>{page.status} — {name}</title>
 </svelte:head>
 
 <div class="flex min-h-screen flex-col items-center justify-center px-6 text-center">

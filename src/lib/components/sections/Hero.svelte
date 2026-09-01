@@ -3,12 +3,13 @@
 	import { onMount } from 'svelte';
 	import { scale } from 'svelte/transition';
 	import socialPhoto from '$lib/assets/social_photo.webp';
-
-	// Extracted variables
-	const designation = 'Mobile Application Developer';
-	const name = 'Srizan';
-	const description = `
-Android native app developer with 4+ years of experience. Passionate about building robust, high-quality mobile applications. Skilled in Kotlin and Java for Android, and also experienced with Flutter for cross-platform development and exploring Kotlin Multiplatform (KMP) for sharing code across Android and iOS.`;
+	import {
+		name as fullName,
+		designation,
+		shortName as name,
+		heroDescription as description,
+		resumeFileName
+	} from '$lib/data/profile';
 
 	let visible = $state(false);
 	onMount(() => {
@@ -56,7 +57,7 @@ Android native app developer with 4+ years of experience. Passionate about build
 				<div class="hero-item mt-8 flex flex-wrap gap-4" style="animation-delay: 500ms">
 					<a
 						href="{resolve('/')}resume.pdf"
-						download="Resume-Mahdi_Saifullah_Srizan-Android_Developer_at_Jatri_Services_Ltd.pdf"
+						download={resumeFileName}
 						class="rounded-lg bg-primary-light px-6 py-3 text-sm font-medium text-white shadow-lg shadow-primary-light/25 transition-all hover:-translate-y-0.5 hover:bg-primary hover:shadow-xl hover:shadow-primary-light/30"
 					>
 						Download Resume
@@ -83,7 +84,7 @@ Android native app developer with 4+ years of experience. Passionate about build
 				>
 					<img
 						src={socialPhoto}
-						alt="Mahdi Saifullah Srizan"
+						alt={fullName}
 						class="h-full w-full rounded-full object-cover"
 						fetchpriority="high"
 					/>

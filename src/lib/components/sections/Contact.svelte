@@ -4,6 +4,7 @@
 	import MailIcon from '$lib/components/icons/MailIcon.svelte';
 	import ExternalLink from '$lib/components/ExternalLink.svelte';
 	import { reveal, staggerReveal } from '$lib/actions/reveal';
+	import { email, github, linkedin } from '$lib/data/profile';
 
 	const linkClass =
 		'flex items-center gap-3 text-text-muted transition-all duration-300 hover:translate-x-2 hover:text-white';
@@ -21,15 +22,15 @@
 			</p>
 
 			<div use:staggerReveal={{ stagger: 100, delay: 300 }} class="mt-8 space-y-4">
-				<a href="mailto:mahdi.saifullah@gmail.com" class={linkClass}>
+				<a href="mailto:{email}" class={linkClass}>
 					<MailIcon />
 					Mail
 				</a>
-				<ExternalLink href="https://github.com/srizanx" class={linkClass}>
+				<ExternalLink href={github} class={linkClass}>
 					<GithubIcon />
 					Github
 				</ExternalLink>
-				<ExternalLink href="https://linkedin.com/in/srizan" class={linkClass}>
+				<ExternalLink href={linkedin} class={linkClass}>
 					<LinkedinIcon />
 					Linkedin
 				</ExternalLink>
