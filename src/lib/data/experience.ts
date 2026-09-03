@@ -19,49 +19,35 @@ export const experience: Company[] = [
 		url: 'https://jatri.co/',
 		roles: [
 			{
-				title: 'Sr. Software Engineer - Mobile',
+				title: 'Sr. Software Engineer',
 				start: '2026-01',
 				end: '2026-08',
 				points: [
-					'Implemented a disaster recovery mechanism that lets the app fetch and switch to a new API base URL at runtime, keeping it usable when the primary server goes down.',
-					'Migrated the app to a new design system, updating shared components and screen styling across the codebase.'
-				]
-			},
-			{
-				title: 'Software Engineer III - Mobile',
-				start: '2025',
-				end: '2026',
-				points: [
-					'Active contributor to the development of the Jatri User App, a multimodal transportation platform for Android and iOS, built with Flutter to deliver a seamless cross-platform experience.',
-					'Maintained all the intracity bus, toll plaza and water transport POS apps.'
-				]
-			},
-			{
-				title: 'Software Engineer I - Android',
-				start: '2024',
-				end: '2025',
-				points: [
-					'Collaborated with cross-functional teams to define, design, and ship new features.',
-					'Participated in code reviews and improved code quality and maintainability.'
+					'Owned 15+ B2B ticketing apps (bus, launch, toll plaza) sharing a common printing core with domain-specific business logic.',
+					'Implemented a runtime disaster recovery mechanism to switch API base URLs dynamically during primary server outages.',
+					'Delivered a code-wide migration to a new design system, updating shared components and screen styling across all flows.'
 				]
 			},
 			{
 				title: 'Software Engineer',
-				start: '2023',
-				end: '2024',
+				start: '2023-01',
+				end: '2025-12',
 				points: [
-					'Participated in the modernization of 10+ legacy Android applications and implemented modern architecture patterns, resulting in improved maintainability and performance.',
-					'Contributed to the development of the dynamic ticket format system that allows companies to customize their ticket layouts without code changes, improving flexibility and reducing maintenance overhead.',
-					'Developed a CI/CD pipeline using GitHub Actions, automating build and deliver to testers and production, resulting in a 30% reduction in deployment time and improved release reliability.'
+					'Engineered two mobile apps from scratch using Jetpack Compose and modern Android architecture.',
+					'Fixed memory leaks using LeakCanary, resolving repeated out-of-memory crashes.',
+					'Designed a reusable printing module supporting both USB and Bluetooth receipt printing.',
+					'Built automated CI/CD pipelines with GitHub Actions to streamline test builds to Firebase App Distribution.'
 				]
 			},
 			{
 				title: 'Jr. Software Engineer',
 				start: '2022-04',
-				end: '2023',
+				end: '2022-12',
 				points: [
-					'Began my software development journey, building a strong foundation in Android development and contributing to impactful projects.',
-					'Key contributor to the Water Transport CabinMan App, enabling efficient launch cabin operations and integrating thermal ticket printing with the RPP300 device.'
+					'Built a custom QR code scanner module leveraging CameraX and ML Kit.',
+					'Developed two toll-collection apps, including a specialized solution for the Mayor Mohammad Hanif Flyover.',
+					'Modernized the codebase by migrating Dagger to Hilt, adopting Clean Architecture, and replacing RxJava with Kotlin Flow.',
+					"Maintained legacy ticket-selling applications for 'Gulshan Chaka' and 'Dhaka Chaka' bus lines to ensure uninterrupted operations."
 				]
 			}
 		]
