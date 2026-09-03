@@ -37,6 +37,26 @@ export const projects: Project[] = [
 	},
 
 	{
+		title: 'Messtro - Shared Mess Manager',
+		desc: 'Compose Multiplatform app for managing a shared mess — a household or hostel that pools food and bills. Tracks meals in shared units, splits bazar and bills fairly, keeps a running wallet balance per member, and runs everything through a manager approval flow with a full audit trail.',
+		tags: ['Compose Multiplatform', 'Kotlin', 'Firebase', 'Koin', 'RevenueCat'],
+		screenshots: [
+			'/screenshots/messtro/01.webp',
+			'/screenshots/messtro/02.webp',
+			'/screenshots/messtro/03.webp',
+			'/screenshots/messtro/04.webp',
+			'/screenshots/messtro/05.webp',
+			'/screenshots/messtro/06.webp',
+			'/screenshots/messtro/07.webp',
+			'/screenshots/messtro/08.webp'
+		],
+		category: 'personal',
+		model: 'personal',
+		live: 'https://play.google.com/store/apps/details?id=com.bitflecks.messtro',
+		featured: true
+	},
+
+	{
 		title: 'XTRA PR71 Router Controller',
 		desc: 'Open-source Android app to control and manage XTRA PR71 pocket routers — power off, restart, and reset remotely, toggle mobile data, monitor connection status, and read or send SMS through the router SIM. Credentials are stored on-device and never sent to external servers.',
 		tags: ['Dart', 'Flutter', 'Bloc', 'Freezed', 'Open Source'],
